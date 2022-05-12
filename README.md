@@ -1,2 +1,4 @@
 # Client-Side
-Respitory Buat Front End
+Repository for Front End
+
+Dont Forget to add .gitignore in your work and MAKE A NEW BRACH
