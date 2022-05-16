@@ -1,0 +1,97 @@
+/* navbar */
+.nav-side{
+    width: 15em;
+}
+
+.search{
+    width: 30%;
+}
+
+.profile{
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
+  background-image: url("../anonim.jpg");
+  background-size: contain;
+  object-fit: cover;
+}
+
+.profile:hover{
+ background-color: inherit !important;
+}
+
+.profile:active{
+  background-color: inherit !important;
+  outline: none;
+}
+
+.profile:enabled{
+  background-color: inherit !important;
+  outline: none;
+}
+  
+.bottom-line{
+  width: 100%;
+  border-bottom: 1px solid #424242;
+}
+
+/* footer */
+.footer-banner-txt {
+  width:600px;
+  height: 250px;
+  overflow: auto;
+}
+
+.overflow {
+  width: fit-content;
+  margin-top: 0px;
+  padding-top: 200px;
+  padding-bottom: 150px;
+  line-height: 1.8;
+}
+
+.overflow img{
+  height: 300px;
+  margin-right: 20px;
+}
+
+.bottom-content{
+  height: 35%;
+  background: #202020;
+}
+
+.bottom-content .col{
+  height: 300px;
+}
+
+.bottom-content .gap{
+  margin: 50px 0 0 0;
+}
+
+.bottom-content .text-footer{
+  height: 150px;
+
+}
+
+.bottom-content li{
+  margin: 3px 0;
+}
+
+.bottom-content svg{
+  color: #ffffff;
+  width: 25px;
+  height: 25px;
+  margin: 0 20px 0 0;
+}
+
+/* button submit  */
+.form-btn-submit:hover{
+  background-color:rgba(243, 198, 105, .3) !important;
+}
+
+.form-btn-submit:active{
+  position: relative;
+  top: 2px;
+}
