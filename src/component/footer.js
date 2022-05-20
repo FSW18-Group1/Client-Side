@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import character from '../footer.png'
+import character from '../assets/footer.png'
 import './component.css';
 
 export default function Foooter() {
