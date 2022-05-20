@@ -13,7 +13,7 @@
   height: 50px;
   border: none;
   border-radius: 50%;
-  background-image: url("../anonim.jpg");
+  background-image: url("../assets/anonim.jpg");
   background-size: contain;
   object-fit: cover;
 }
