@@ -2,7 +2,6 @@ import { Fragment } from "react";
 import Content from "../component/content";
 import Navbar from "../component/nav";
 import Footer from "../component/footer"
-import MultipleItems from "../component/SimpleSlider"
 import './pages.css';
 
 export default function Home() {
