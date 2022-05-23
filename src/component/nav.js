@@ -5,7 +5,7 @@ import {Dropdown} from 'react-bootstrap'
 import { useState, Fragment } from 'react';
 
 export default function Navbar() {
-    const [login, setLogin] = useState(true)
+    const [login, setLogin] = useState(false)
 
     return(
         <div className='d-flex justify-content-between pt-4 mx-3 sticky'>
