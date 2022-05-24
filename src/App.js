@@ -4,7 +4,8 @@ import Home from './pages/home';
 import Login from './pages/login';
 import Game from './pages/paper-rock-scissor';
 import Game_2 from './pages/rock-paper-scissors';
-import Signup from './pages/singup'
+import Signup from './pages/singup';
+import ProfilePages from './pages/ProfilePages'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path='/signup' element={<Signup />} />
         <Route path='/game' element={<Game />} />
         <Route path='/game2' element={<Game_2 />} />
+        <Route path='/profile' element={<ProfilePages />} />
       </Routes>
     </div>
   );

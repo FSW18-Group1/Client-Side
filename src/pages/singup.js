@@ -6,7 +6,7 @@ import Footer from "../component/footer"
 import Submit from "../component/submit";
 import NoSubmit from "../component/submitNo";
 
-export default function Login() {
+export default function Signup() {
     return(
         <Fragment>        
         <div className="section banner-bg">
