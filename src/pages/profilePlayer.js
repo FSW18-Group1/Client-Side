@@ -1,0 +1,60 @@
+import { Fragment, useState, useEffect } from "react";
+import { Link, useNavigate, useParams} from 'react-router-dom';
+import './pages.css';
+import {Form, Button} from 'react-bootstrap'
+import axios from 'axios'
+
+
+export default function ProfilePlayer() {
+    const[user, setUser] = useState([])
+    const [authenticated, setAuthenticated] = useState(false)
+    const [data, setData] = useState({})
+    const navigate = useNavigate()
+    const params = useParams()
+
+    const checkAuth = () => {
+        const token = localStorage.getItem('token')
+        const dataParse = JSON.parse(localStorage.getItem('data')) 
+        setData(dataParse)
+        if(token) {
+            setAuthenticated(true)
+        } else {
+            setAuthenticated(false)
+            navigate('/login')
+        }
+    }
+
+    useEffect(() => {
+        async function getUser() {
+            const request = await fetch(`https://jsonplaceholder.typicode.com/users/${params.id}`)
+            const response = await request.json()
+            setUser(response)
+        }
+        document.title = 'Profile'
+        getUser()
+        checkAuth()
+    }, [params])
+
+    console.log(params.id)
+    console.log(user)
+    console.log(data)
+
+    return(
+        <Fragment>        
+            <div className="section">
+                <Form className="container profile-form">
+                    <div className='profile-picture'></div>
+                    <h1 className="py-4">Player Profile</h1>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Label>Email</Form.Label>
+                        <Form.Control type="email" value={user.email}  disabled />
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Label>Username</Form.Label>
+                        <Form.Control type="text" value={user.username} disabled />
+                    </Form.Group>              
+                </Form>
+            </div>
+        </Fragment>
+    )
+}
