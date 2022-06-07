@@ -9,15 +9,17 @@ import Content from "../component/content";
 import Navbar from "../component/nav";
 import Footer from "../component/footer"
 import './pages.css';
+import { useCookies } from 'react-cookie';
 
 export default function Homepage() {
     const [authenticated, setAuthenticated] = useState(false)
     const [data, setData] = useState({})
     const navigate = useNavigate()
+    const [cookie,setCookie,removeCookie] = useCookies(['token','data'])
 
     const checkAuth = () => {
-        const token = localStorage.getItem('token')
-        const dataParse = JSON.parse(localStorage.getItem('data')) 
+        const token = cookie.token
+        const dataParse = cookie.data
         setData(dataParse)
         console.log(dataParse)
         if(token) {
@@ -29,10 +31,12 @@ export default function Homepage() {
     }
 
     const logout = () => {
-        localStorage.removeItem('token')
+        removeCookie('token')
+        removeCookie('data')
         setAuthenticated(false)
         navigate('/login')
     }
+    
 
     useEffect(() => {
         document.title = 'Home'

@@ -30,7 +30,7 @@ export default function Content() {
                         <div className="py-3 ">
                             <p className="text-center no-space">Minecraft</p>
                             <div className="d-flex mx-auto" style={{width:"fit-content"}}>
-                                <i class="gg-eye text-center me-2 mt-1"></i>
+                                <i className="gg-eye text-center me-2 mt-1"></i>
                                 <p className="text-center no-space">138,555</p>
                             </div>
                         </div>
@@ -41,7 +41,7 @@ export default function Content() {
                         <div className="py-3 ">
                             <p className="text-center no-space">Pingsut</p>
                             <div className="d-flex mx-auto" style={{width:"fit-content"}}>
-                                <i class="gg-eye text-center me-2 mt-1"></i>
+                                <i className="gg-eye text-center me-2 mt-1"></i>
                                 <p className="text-center no-space">138,555</p>
                             </div>
                         </div>
@@ -52,7 +52,7 @@ export default function Content() {
                         <div className="py-3 ">
                             <p className="text-center no-space">Capsa</p>
                             <div className="d-flex mx-auto" style={{width:"fit-content"}}>
-                                <i class="gg-eye text-center me-2 mt-1"></i>
+                                <i className="gg-eye text-center me-2 mt-1"></i>
                                 <p className="text-center no-space">138,555</p>
                             </div>
                         </div>
@@ -62,7 +62,7 @@ export default function Content() {
                         <div className="py-3 ">
                             <p className="text-center no-space">Zumba the zuma</p>
                             <div className="d-flex mx-auto" style={{width:"fit-content"}}>
-                                <i class="gg-eye text-center me-2 mt-1"></i>
+                                <i className="gg-eye text-center me-2 mt-1"></i>
                                 <p className="text-center no-space">138,555</p>
                             </div>
                         </div>
@@ -72,7 +72,7 @@ export default function Content() {
                         <div className="py-3 ">
                             <p className="text-center no-space">Bully the bullies</p>
                             <div className="d-flex mx-auto" style={{width:"fit-content"}}>
-                                <i class="gg-eye text-center me-2 mt-1"></i>
+                                <i className="gg-eye text-center me-2 mt-1"></i>
                                 <p className="text-center no-space">138,555</p>
                             </div>
                         </div>
@@ -82,7 +82,7 @@ export default function Content() {
                         <div className="py-3 ">
                             <p className="text-center no-space">Bully</p>
                             <div className="d-flex mx-auto" style={{width:"fit-content"}}>
-                                <i class="gg-eye text-center me-2 mt-1"></i>
+                                <i className="gg-eye text-center me-2 mt-1"></i>
                                 <p className="text-center no-space">138,555</p>
                             </div>
                         </div>

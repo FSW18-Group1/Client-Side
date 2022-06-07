@@ -3,17 +3,19 @@ import { Link, useNavigate } from "react-router-dom";
 import poster from '../assets/paperockscissor.jpg'
 import Table from 'react-bootstrap/Table'
 import axios from 'axios';
+import { useCookies } from 'react-cookie';
 
 
 function GameDetail() {
   const [authenticated, setAuthenticated] = useState(false)
   const [user, setUser] = useState([])
   const navigate = useNavigate()
+  const [cookie, setCookie, removeCookie] = useCookies(['token','data'])
 
   let count = 1
 
   const checkAuth = () => {
-      const token = localStorage.getItem('token')
+      const token = cookie.token
       if(token) {
           setAuthenticated(true)
       } else {
@@ -26,15 +28,13 @@ function GameDetail() {
       let url = 'https://challenge-chapter-9.herokuapp.com/games/1';
       axios.get(url)
           .then((response) => {
-            console.log(response.data.data)
-
             const array = response.data.data
             const arrayMap = array.map((player)=>{
               return{
                 game: player.Game.gamesname,
                 id: player.Player.id,
                 username : player.Player.username,
-                score: player.points
+                score: player.points,
               }
             })
             arrayMap.sort((a, b)=>{
@@ -42,10 +42,9 @@ function GameDetail() {
             })
 
             console.log(arrayMap)
-              setUser(
-                arrayMap
-              )
-
+            setUser(
+              arrayMap
+            )
           })
           .catch(err => console.log(err))
   }

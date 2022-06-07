@@ -23,14 +23,13 @@ export default function Login() {
             email: email,
             password: password
         }
-        axios.post(url, body,)
+        axios.post(url, body)
             .then(res => {
                 console.log(res)
-                localStorage.setItem('token', res.data.cookie)
-                localStorage.setItem('data', JSON.stringify(res.data.data))
-                setCookie('username', username, {path:'/'})
-                setCookie('email', email, {path:'/'})
-                setCookie('password', password, {path:'/'})
+                // localStorage.setItem('token', res.data.cookie)
+                // localStorage.setItem('data', JSON.stringify(res.data.data))                
+                setCookie('token',res.data.token)
+                setCookie('data',JSON.stringify(res.data.data))
                 navigate('/home')
             })
             .catch(err => {
@@ -52,13 +51,13 @@ export default function Login() {
                     <h3 className="text-center mb-5 fw-light">Sign In</h3>
                     <form onSubmit={(e) => handleSubmit(e)} > 
                         <div className="mb-4">
-                            <input type="text" className="form-input" id="InputEmail1" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
+                            <input type="text" className="form-input" id="username" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
                         </div>
                         <div className="mb-4">
-                            <input type="email" className="form-input" id="InputEmail1" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                            <input type="email" className="form-input" id="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
                         </div>
                         <div className="mb-4">
-                            <input type="password" className="form-input" id="InputPassword" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+                            <input type="password" className="form-input" id="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
                         </div>
                         <Submit command="SIGN IN" />
                     </form>

@@ -5,6 +5,7 @@ import scissors from "../assets/scissor.png";
 import paper from "../assets/paper.png";
 import rock from "../assets/rock.png";
 import axios from 'axios';
+import { useCookies } from 'react-cookie';
 
 const Game_2 = () => {
   const [userChoice, setUserChoice] = useState(rock)
@@ -18,6 +19,7 @@ const Game_2 = () => {
   const navigate = useNavigate()
   const [data,setData] = useState({})
   const [authenticated, setAuthenticated] = useState(false)
+  const [cookie, setCookie, removeCookie] = useCookies(['token','data'])
 
   // const getScore = () => {
   //   axios.get(`${url}/1`)
@@ -30,9 +32,9 @@ const Game_2 = () => {
   // console.log(dataParse)
   // setData(dataParse)
 
+  const token = cookie.token
+  const dataParse = cookie.data 
   const checkAuth = () => {
-    const token = localStorage.getItem('token')
-    const dataParse = JSON.parse(localStorage.getItem('data')) 
     setData(dataParse)
     console.log(dataParse)
     if(token) {
@@ -47,7 +49,7 @@ const Game_2 = () => {
     e.preventDefault()
     const url = 'https://challenge-chapter-9.herokuapp.com/games/1'
     const form = {
-      id: data.id,
+      id: dataParse.id,
       points: result
     }
     axios.put(url, form)

@@ -11,15 +11,11 @@ export default function Profile() {
     const [username, setUsername] = useState('')
     const [id, setId] = useState('')
     const navigate = useNavigate()
-    const [cookies, setCookie, removeCookie] = useCookies(['token'])
-    const [token, setToken] = useState('')  
+    const [cookie, setCookie, removeCookie] = useCookies(['token','data'])
+  
 
     const getData = () => {
-        const dataParse = JSON.parse(localStorage.getItem('data')) 
-        const tok = localStorage.getItem('token')
-        setToken(tok)
-        setCookie('username', username, {path:'/'})
-        setCookie('email', email, {path:'/'})
+        const dataParse = cookie.data 
         setId(dataParse.id)
         setEmail(dataParse.email)
         setUsername(dataParse.username)
@@ -33,21 +29,23 @@ export default function Profile() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        const token = cookie.token
 
         const data = {
+            id: id,
             username: username,
-            email: email,
+            email: email,            
         }
         const config = {
-            headers: {
-                "Cookie": `token=${token}`
-            }
+            headers: { Authorization: `Bearer ${token}`}
         }
         console.log(data)
-        console.log(config)
+        // console.log(config)
 
         axios.put(`https://challenge-chapter-9.herokuapp.com/profile/${id}`, data, config )
         .then(res => {
+            removeCookie('data')
+            setCookie('data',data)
             navigate('/home')
         })
         .catch(

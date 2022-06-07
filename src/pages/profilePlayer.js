@@ -3,41 +3,47 @@ import { Link, useNavigate, useParams} from 'react-router-dom';
 import './pages.css';
 import {Form, Button} from 'react-bootstrap'
 import axios from 'axios'
+import { useCookies } from "react-cookie";
 
 
 export default function ProfilePlayer() {
-    const[user, setUser] = useState([])
+    const [user, setUser] = useState([])
     const [authenticated, setAuthenticated] = useState(false)
     const [data, setData] = useState({})
     const navigate = useNavigate()
     const params = useParams()
+    const [cookie, setCookie, removeCookie] = useCookies(['token','data'])
 
+    const token = cookie.token
     const checkAuth = () => {
-        const token = localStorage.getItem('token')
-        const dataParse = JSON.parse(localStorage.getItem('data')) 
+        const dataParse = cookie.data 
         setData(dataParse)
         if(token) {
             setAuthenticated(true)
         } else {
             setAuthenticated(false)
-            navigate('/login')
+            // navigate('/login')
         }
     }
 
+    const config = {
+        headers: { Authorization: `Bearer ${token}`}
+    }
+
+    
     useEffect(() => {
-        async function getUser() {
-            const request = await fetch(`https://jsonplaceholder.typicode.com/users/${params.id}`)
-            const response = await request.json()
-            setUser(response)
-        }
+        axios.get(`https://challenge-chapter-9.herokuapp.com/profile/${params.id}`, config)
+        .then(res=>{
+        setUser(res)
+        })        
         document.title = 'Profile'
-        getUser()
+        // getUser()
         checkAuth()
     }, [params])
 
-    console.log(params.id)
+    // console.log(params.id)
     console.log(user)
-    console.log(data)
+    // console.log(data)
 
     return(
         <Fragment>        
