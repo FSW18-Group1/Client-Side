@@ -19,7 +19,7 @@ const Game_2 = () => {
   const navigate = useNavigate()
   const [data,setData] = useState({})
   const [authenticated, setAuthenticated] = useState(false)
-  const [cookie, setCookie, removeCookie] = useCookies(['token','data'])
+  const [cookie, setCookie, removeCookie] = useCookies(['token','data','score'])
 
   // const getScore = () => {
   //   axios.get(`${url}/1`)
@@ -34,8 +34,10 @@ const Game_2 = () => {
 
   const token = cookie.token
   const dataParse = cookie.data 
+  const score = parseInt(cookie.score)
   const checkAuth = () => {
     setData(dataParse)
+    setResult(score)
     console.log(dataParse)
     if(token) {
         setAuthenticated(true)
@@ -80,6 +82,9 @@ const Game_2 = () => {
     setComputerPoints(0);
     setTurnResult('')
     setGameOver(false)
+    // setResult(score)
+    // removeCookie('score')
+    // setCookie('score',score)
 
   }
 
@@ -94,13 +99,12 @@ const Game_2 = () => {
             (userChoice === paper && computerChoice === rock) ||
             (userChoice === scissors && computerChoice === paper)
         ) {
-        // userPoints.current += 1
         const updatedUserPoints = userPoints + 1
         setUserPoints(updatedUserPoints)
         setTurnResult('User gets the point!')
         if (updatedUserPoints === 5){
           setTurnResult('Player Wins!!')
-          setResult(result+1)
+          setResult(score+3)
           const gameOff = true
           setGameOver(gameOff)
         }
@@ -111,13 +115,12 @@ const Game_2 = () => {
             (userChoice === scissors && computerChoice === rock) ||
             (userChoice === rock && computerChoice === paper)
         ) {
-        // computerPoints.current += 1
         const updatedComputerPoints = computerPoints + 1
         setComputerPoints(updatedComputerPoints)
         setTurnResult('Computer gets the point!')
         if (updatedComputerPoints === 5) {
           setTurnResult('Computer Wins!!')
-          setResult(result-1)
+          setResult(score-1)
           const gameOff = true
           setGameOver(gameOff)
         }
@@ -135,6 +138,7 @@ const Game_2 = () => {
       <div className='d-flex justify-content-between'>
           <p>username: {data.username} </p>
           <p id="id">id: {data.id}  </p>
+          <p>score: {score}</p>
       </div>
       <div className='score'>
         <h1>User Points: {userPoints}</h1>

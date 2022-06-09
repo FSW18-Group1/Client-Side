@@ -22,7 +22,7 @@ export default function ProfilePlayer() {
             setAuthenticated(true)
         } else {
             setAuthenticated(false)
-            // navigate('/login')
+            navigate('/login')
         }
     }
 

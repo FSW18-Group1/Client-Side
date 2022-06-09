@@ -15,7 +15,7 @@ export default function Homepage() {
     const [authenticated, setAuthenticated] = useState(false)
     const [data, setData] = useState({})
     const navigate = useNavigate()
-    const [cookie,setCookie,removeCookie] = useCookies(['token','data'])
+    const [cookie,setCookie,removeCookie] = useCookies(['token','data','score'])
 
     const checkAuth = () => {
         const token = cookie.token
@@ -33,6 +33,7 @@ export default function Homepage() {
     const logout = () => {
         removeCookie('token')
         removeCookie('data')
+        removeCookie('score')
         setAuthenticated(false)
         navigate('/login')
     }

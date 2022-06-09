@@ -37,11 +37,17 @@ function GameDetail() {
                 score: player.points,
               }
             })
+            const id = cookie.data.id
+            const points = array.find((o)=> o.playerId === id).points
+            // const points = point.points
+            setCookie('score',points)
+            // console.log(arrayMap);
+            // console.log(points);
             arrayMap.sort((a, b)=>{
               return  b.score - a.score 
             })
 
-            console.log(arrayMap)
+           
             setUser(
               arrayMap
             )
