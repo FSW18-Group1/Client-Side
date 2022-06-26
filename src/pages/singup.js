@@ -1,13 +1,15 @@
 import { Fragment, useState, useEffect } from "react";
 import { Link, useNavigate} from 'react-router-dom';
+// import {useDispatch} from "react-redux"
+import axios from "axios";
 import './pages.css';
 import Navbar from "../component/nav";
 import Footer from "../component/footer"
 import Submit from "../component/submit";
 import NoSubmit from "../component/submitNo";
-import axios from "axios";
 
 export default function Login() {
+    // const dispatch = useDispatch()
     const navigate = useNavigate()
     const [username,setUsername] = useState('');
     const [email,setEmail] = useState('');
@@ -15,6 +17,7 @@ export default function Login() {
     
 
     const createUser= (e) => {
+        console.log('1. masuk handlesubmit')
         e.preventDefault()
         let url = 'https://challenge-chapter-9.herokuapp.com/register'
         const form = {

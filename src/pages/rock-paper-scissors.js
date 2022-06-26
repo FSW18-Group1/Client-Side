@@ -7,7 +7,7 @@ import rock from "../assets/rock.png";
 import axios from 'axios';
 import { useCookies } from 'react-cookie';
 
-const Game_2 = () => {
+const Game = () => {
   const [userChoice, setUserChoice] = useState(rock)
   const [computerChoice, setComputerChoice] = useState(scissors)
   const [userPoints, setUserPoints] = useState(0)
@@ -186,4 +186,4 @@ const Game_2 = () => {
   )
 }
 
-export default Game_2
+export default Game

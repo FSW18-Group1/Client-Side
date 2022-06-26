@@ -15,17 +15,6 @@ export default function ProfilePlayer() {
     const [cookie, setCookie, removeCookie] = useCookies(['token','data'])
 
     const token = cookie.token
-    const checkAuth = () => {
-        const dataParse = cookie.data 
-        setData(dataParse)
-        if(token) {
-            setAuthenticated(true)
-        } else {
-            setAuthenticated(false)
-            navigate('/login')
-        }
-    }
-
     const getUser= () => {
         const config = {
             headers: { Authorization: `Bearer ${token}`}
@@ -41,7 +30,6 @@ export default function ProfilePlayer() {
     useEffect(() => {       
         document.title = 'Profile'
         getUser()
-        checkAuth()
     }, [params])
 
     return(

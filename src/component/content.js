@@ -26,7 +26,7 @@ export default function Content() {
                 </div>
                 <div className="main-content d-flex justify-content-between">
                     <div className="box">
-                        <img src="https://www.mordeo.org/files/uploads/2020/06/Minecraft-Dungeons-Game-Poster-4K-Ultra-HD-Mobile-Wallpaper-950x1689.jpg"/>
+                        <img alt="ada gambar" src="https://www.mordeo.org/files/uploads/2020/06/Minecraft-Dungeons-Game-Poster-4K-Ultra-HD-Mobile-Wallpaper-950x1689.jpg"/>
                         <div className="py-3 ">
                             <p className="text-center no-space">Minecraft</p>
                             <div className="d-flex mx-auto" style={{width:"fit-content"}}>
@@ -37,7 +37,7 @@ export default function Content() {
                     </div>
                     <div className="box">
                     <Link to='/gamepage'>
-                        <img src="https://media.gettyimages.com/photos/rock-paper-scissors-picture-id164817360?s=612x612"/>
+                        <img alt="ada gambar" src="https://media.gettyimages.com/photos/rock-paper-scissors-picture-id164817360?s=612x612"/>
                         <div className="py-3 ">
                             <p className="text-center no-space">Pingsut</p>
                             <div className="d-flex mx-auto" style={{width:"fit-content"}}>
@@ -48,7 +48,7 @@ export default function Content() {
                     </Link>
                     </div>
                     <div className="box">
-                        <img src="https://i.pinimg.com/originals/dd/0c/c0/dd0cc00ef509393f4a6be7f53d8363a0.jpg"/>
+                        <img alt="ada gambar" src="https://i.pinimg.com/originals/dd/0c/c0/dd0cc00ef509393f4a6be7f53d8363a0.jpg"/>
                         <div className="py-3 ">
                             <p className="text-center no-space">Capsa</p>
                             <div className="d-flex mx-auto" style={{width:"fit-content"}}>
@@ -58,7 +58,7 @@ export default function Content() {
                         </div>
                     </div>
                     <div className="box">
-                        <img src="https://www.mordeo.org/files/uploads/2020/06/Minecraft-Dungeons-Game-Poster-4K-Ultra-HD-Mobile-Wallpaper-950x1689.jpg"/>
+                        <img alt="ada gambar" src="https://www.mordeo.org/files/uploads/2020/06/Minecraft-Dungeons-Game-Poster-4K-Ultra-HD-Mobile-Wallpaper-950x1689.jpg"/>
                         <div className="py-3 ">
                             <p className="text-center no-space">Zumba the zuma</p>
                             <div className="d-flex mx-auto" style={{width:"fit-content"}}>
@@ -68,7 +68,7 @@ export default function Content() {
                         </div>
                     </div>
                     <div className="box">
-                        <img src="https://i.pinimg.com/236x/01/51/77/01517797e7ff2092d0ba7c56b00bb60d.jpg"/>
+                        <img alt="ada gambar" src="https://i.pinimg.com/236x/01/51/77/01517797e7ff2092d0ba7c56b00bb60d.jpg"/>
                         <div className="py-3 ">
                             <p className="text-center no-space">Bully the bullies</p>
                             <div className="d-flex mx-auto" style={{width:"fit-content"}}>
@@ -78,7 +78,7 @@ export default function Content() {
                         </div>
                     </div>
                     <div className="box">
-                        <img src="https://images.tokopedia.net/img/cache/700/product-1/2019/4/4/52702914/52702914_04297eb0-bd1a-4a0a-beee-7c47d5df3512_700_1052.jpg"/>
+                        <img alt="ada gambar" src="https://images.tokopedia.net/img/cache/700/product-1/2019/4/4/52702914/52702914_04297eb0-bd1a-4a0a-beee-7c47d5df3512_700_1052.jpg"/>
                         <div className="py-3 ">
                             <p className="text-center no-space">Bully</p>
                             <div className="d-flex mx-auto" style={{width:"fit-content"}}>
