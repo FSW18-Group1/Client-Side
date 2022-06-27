@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react'
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import axios from 'axios';
 import './pages.css'
 import scissors from "../assets/scissor.png";
 import paper from "../assets/paper.png";
 import rock from "../assets/rock.png";
-import axios from 'axios';
-import { useCookies } from 'react-cookie';
+import {authenticatedAction} from '../redux/actions/authenticated'
 
 const Game = () => {
   const [userChoice, setUserChoice] = useState(rock)
@@ -16,42 +17,17 @@ const Game = () => {
   const [result, setResult] = useState(0)
   const [gameOver, setGameOver] = useState(false)
   const choices = [rock, paper, scissors]
+
   const navigate = useNavigate()
-  const [data,setData] = useState({})
-  const [authenticated, setAuthenticated] = useState(false)
-  const [cookie, setCookie, removeCookie] = useCookies(['token','data','score'])
+  const score = parseInt(localStorage.score)
 
-  // const getScore = () => {
-  //   axios.get(`${url}/1`)
-  //     .then((response) => {
-  //       setResult(response.data)
-  //     });
-  // }
-
-  // const dataParse = JSON.parse(localStorage.getItem('data')) 
-  // console.log(dataParse)
-  // setData(dataParse)
-
-  const token = cookie.token
-  const dataParse = cookie.data 
-  const score = parseInt(cookie.score)
-  const checkAuth = () => {
-    setData(dataParse)
-    setResult(score)
-    console.log(dataParse)
-    if(token) {
-        setAuthenticated(true)
-    } else {
-        setAuthenticated(false)
-        navigate('/login')
-    }
-  }
+  const {token, data} = useSelector((state) => state.authenticatedReducer)
 
   const updateScore = (e) => {
     e.preventDefault()
     const url = 'https://challenge-chapter-9.herokuapp.com/games/1'
     const form = {
-      id: dataParse.id,
+      id: data.id,
       points: result
     }
     axios.put(url, form)
@@ -91,7 +67,7 @@ const Game = () => {
   useEffect(() => {
     // getScore();
     // updateScore();
-    checkAuth()
+    setResult(score)
     document.title = 'Pingsut Ingame'
     if (userPoints <= 4 && computerPoints <= 4) {
         if (
@@ -133,6 +109,12 @@ const Game = () => {
   }, [computerChoice, userChoice])
 
   return (
+    <>
+    {!token && 
+    <div className='section pt-4'>
+      <h2 className='container'>you must <Link to={'/login'} >LOGIN</Link> first</h2>
+    </div>
+    } 
     <div className="container">
       <h1 className='heading'>SUWIT</h1>
       <div className='d-flex justify-content-between'>
@@ -183,7 +165,8 @@ const Game = () => {
         </form>
       </div>
     </div>
+    </>
   )
 }
 
-export default Game
+export default Game;
