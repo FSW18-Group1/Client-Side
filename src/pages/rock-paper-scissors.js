@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import axios from 'axios';
 import './pages.css'
 import scissors from "../assets/scissor.png";
 import paper from "../assets/paper.png";
 import rock from "../assets/rock.png";
-import {authenticatedAction} from '../redux/actions/authenticated'
 
 const Game = () => {
   const [userChoice, setUserChoice] = useState(rock)
