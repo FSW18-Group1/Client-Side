@@ -1,9 +1,7 @@
 import { Link} from 'react-router-dom';
 import Search from './search'
 import './component.css';
-import {Dropdown} from 'react-bootstrap'
-import { useState, Fragment, useEffect } from 'react';
-import axios from 'axios';
+import {  Fragment } from 'react';
 
 export default function Navbar() {
 

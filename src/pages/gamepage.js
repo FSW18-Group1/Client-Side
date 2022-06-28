@@ -1,4 +1,4 @@
-import { useState, Fragment, useEffect } from 'react';
+import { Fragment, useEffect } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import poster from '../assets/paperockscissor.jpg'
 import Table from 'react-bootstrap/Table'
@@ -10,7 +10,6 @@ import { useDispatch, useSelector } from "react-redux";
 function GameDetail() {
   const { token, data } = useSelector((state) => state.authenticatedReducer);
   const {getLeaderboardResult, getLeaderboardLoading,getLeaderboardError} = useSelector((state) => state.leaderboardReducer)
-  const [user, setUser] = useState([])
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
@@ -48,7 +47,7 @@ function GameDetail() {
 
   return (
     <>
-    {!token && navigate('login')}
+    {!token && navigate('/login')}
     <div className="section">
       <div className="container">
           <div className="row align-items-center py-5">
@@ -63,7 +62,7 @@ function GameDetail() {
               <h1 className="font-weight-light">This is games for kid</h1>
               <p>
                 Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
+                industry. Lorem Ipsum has been the company standard dummy
                 text ever since the 1500s, when an unknown printer took a galley
                 of type and scrambled it to make a type specimen book.
               </p>
