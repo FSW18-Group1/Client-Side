@@ -15,9 +15,7 @@ export const getProfilePlayer = (data) => {
       const id = data
       let token = localStorage.getItem('token') 
       console.log("token",token)
-      const config = {
-        headers: { Authorization: `Bearer ${token}`}
-    }
+      const config = {headers: {Authorization: `Bearer ${token}`}}
 
       axios.get(`https://challenge-chapter-9.herokuapp.com/profile/${id}`, config)
           .then((res) => {

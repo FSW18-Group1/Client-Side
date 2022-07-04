@@ -3,7 +3,7 @@ import './component.css';
 export default function Submit(props) {
     const {command, click} = props
     return(
-        <button type="submit"
+        <button type="submit" data-testid="submit"
         className="mb-4 form-btn-submit" 
         onClick= {click}
         style={{width:'100%',

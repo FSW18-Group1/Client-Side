@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes} from 'react-router-dom';
 import './App.css';
 import GameDetail from './pages/gamepage';
 import Home from './pages/home';
@@ -12,16 +12,16 @@ import ProfilePlayer from './pages/profilePlayer';
 function App() {
   return (
     <div className="App">
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/signup' element={<Signup />} />
-        <Route path='/gamepage' element={<GameDetail />} />
-        <Route path='/game' element={<Game />} />
-        <Route path='/profile' element={<Profile />} />
-        <Route path='/gamepage/playerprofile/:id' element={<ProfilePlayer />} />
-        <Route path='*' element={<Error />} />
-      </Routes>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/signup' element={<Signup />} />
+          <Route path='/gamepage/1' element={<GameDetail />} />
+          <Route path='/game' element={<Game />} />
+          <Route path='/profile' element={<Profile />} />
+          <Route path='/gamepage/1/playerprofile/:id' element={<ProfilePlayer />} />
+          <Route path='*' element={<Error />} />
+        </Routes>
     </div>
   );
 }

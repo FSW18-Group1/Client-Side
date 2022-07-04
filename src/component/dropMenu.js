@@ -15,7 +15,7 @@ export default function DropMenu(props) {
     return(
         <div className='d-flex justify-content-between pt-4 mx-3 sticky'>
                 <div className='d-flex justify-content-between nav-side' style={{paddingLeft:"5em"}}>
-                    <Link to='/home'>Letitgo-game</Link>
+                    <Link to='/'>Letitgo-game</Link>
                     <p >| home</p>
                 </div>
                 <div className='search'>

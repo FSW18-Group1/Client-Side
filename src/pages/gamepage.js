@@ -1,8 +1,9 @@
 import { Fragment, useEffect } from 'react';
 import { Link, useNavigate } from "react-router-dom";
-import poster from '../assets/paperockscissor.jpg'
+// import poster from '../assets/paperockscissor.jpg'
 import Table from 'react-bootstrap/Table'
 import axios from 'axios';
+import Video from '../component/video';
 import { authenticatedAction } from '../redux/actions/authenticated';
 import { getLeaderboard } from "../redux/actions/leaderboard";
 import { useDispatch, useSelector } from "react-redux";
@@ -52,11 +53,12 @@ function GameDetail() {
       <div className="container">
           <div className="row align-items-center py-5">
             <div className="col-lg-7">
-              <img
+              <Video poster/>
+              {/* <img
                 className="img-fluid rounded mb-4 mb-lg-0"
                 src={poster}
                 alt="foto ini"
-              />
+              /> */}
             </div>
             <div className="col-lg-5">
               <h1 className="font-weight-light">This is games for kid</h1>

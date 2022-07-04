@@ -45,6 +45,14 @@ form button{
   object-fit: cover;
 }
 
+.upload-image{
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border: none;
+  border-radius: 50%;
+}
+
 .profile:hover{
  background-color: inherit !important;
 }

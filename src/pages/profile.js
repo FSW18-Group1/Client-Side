@@ -1,15 +1,40 @@
 import { Fragment, useState, useEffect } from "react";
-import { Link, useNavigate} from 'react-router-dom';
-import './pages.css';
 import {Form, Button} from 'react-bootstrap'
+import { Link, useNavigate} from 'react-router-dom';
+import { useDispatch, useSelector } from "react-redux";
+import { authenticatedAction } from "../redux/actions/authenticated";
+import './pages.css';
 import axios from 'axios'
 
 export default function Profile() {
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
     const [email, setEmail] = useState('')
     const [username, setUsername] = useState('')
+    const { token, data } = useSelector((state) => state.authenticatedReducer);
+    const id = data.id
+
     const handleSubmit = (e) => {
         e.preventDefault()
+        const bodyUpdate = {username, email, id}
+        const config = {headers: {Authorization: `Bearer ${token}`}}
+        const url = `https://challenge-chapter-9.herokuapp.com/profile/${id}`
+        axios.put(url, bodyUpdate, config)
+            .then((res) => {
+                localStorage.removeItem("data")
+                localStorage.setItem("data", JSON.stringify(bodyUpdate));
+                navigate('/')
+            })
+            .catch((err) => {
+                console.log("gagal", err.message)
+            })
     }
+
+    useEffect(() => {
+        dispatch(authenticatedAction());
+        setUsername(data.username);
+        setEmail(data.email)
+    }, [])
     
     return(
         <Fragment>        

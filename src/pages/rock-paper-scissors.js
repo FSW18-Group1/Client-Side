@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link} from "react-router-dom";
 import { useSelector } from "react-redux";
 import axios from 'axios';
 import './pages.css'
@@ -32,12 +32,12 @@ const Game = () => {
     axios.put(url, form)
     .then(res => {
         console.log(res)
-        navigate('/gamepage')
+        navigate('/gamepage/1')
     })
     .catch(
         err => {
           console.log(err)
-          navigate('/gamepage')
+          navigate('/gamepage/1')
         }
     )
   }
@@ -111,7 +111,7 @@ const Game = () => {
     <>
     {!token && 
     <div className='section pt-4'>
-      <h2 className='container'>you must <Link to={'/login'} >LOGIN</Link> first</h2>
+      <h2 className='container'>you must <Link to={'/login'} >LOGIN</Link>first</h2>
     </div>
     } 
     <div className="container">

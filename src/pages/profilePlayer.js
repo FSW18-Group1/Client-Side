@@ -1,37 +1,25 @@
 import { Fragment, useState, useEffect } from "react";
 import { Link, useNavigate, useParams} from 'react-router-dom';
-import './pages.css';
-import {Form, Button} from 'react-bootstrap'
+import {Form, Button} from 'react-bootstrap';
+import { useDispatch, useSelector } from "react-redux";
+import { authenticatedAction } from "../redux/actions/authenticated";
+import { getProfilePlayer } from '../redux/actions/profileplayer';
 import axios from 'axios'
-import { useCookies } from "react-cookie";
-
+import './pages.css';
 
 export default function ProfilePlayer() {
-    const [user, setUser] = useState({})
-    const [authenticated, setAuthenticated] = useState(false)
-    const [data, setData] = useState({})
-    const navigate = useNavigate()
-    const params = useParams()
-    const [cookie, setCookie, removeCookie] = useCookies(['token','data'])
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const params = useParams();
+    const id = params.id
+    const {token, data} = useSelector((state) => state.authenticatedReducer)
+    const { getProfilePlayerEmail, getProfilePlayerUsername } = useSelector((state) => state.ProfilePlayerReducer)
 
-    const token = cookie.token
-    const getUser= () => {
-        const config = {
-            headers: { Authorization: `Bearer ${token}`}
-        }
-        let url = `https://challenge-chapter-9.herokuapp.com/profile/${params.id}`;
-        axios.get(url, config)
-            .then((response) => {
-                setUser(response.data.data)
-            })
-            .catch(err => console.log(err))
-    }
-    
-    useEffect(() => {       
-        document.title = 'Profile'
-        getUser()
-    }, [params])
-
+    useEffect(()=> {
+        document.title='profile'
+        dispatch(authenticatedAction())
+        dispatch(getProfilePlayer(id))
+      }, [])
     return(
         <Fragment>        
             <div className="section">
@@ -40,13 +28,13 @@ export default function ProfilePlayer() {
                     <h1 className="py-4">Player Profile</h1>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email</Form.Label>
-                        <Form.Control type="email" value={user.email}  disabled />
+                        <Form.Control type="email" value={getProfilePlayerEmail}  disabled />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Username</Form.Label>
-                        <Form.Control type="text" value={user.username} disabled />
+                        <Form.Control type="text" value={getProfilePlayerUsername} disabled />
                     </Form.Group>
-                    <Link to='/gamepage'><button className="me-4 btn btn-danger">&laquo; back</button></Link>              
+                    <Link to='/gamepage/1'><button className="me-4 btn btn-danger">&laquo; back</button></Link>              
                 </Form>
             </div>
         </Fragment>
