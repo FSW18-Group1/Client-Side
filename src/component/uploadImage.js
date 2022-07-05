@@ -30,7 +30,7 @@ function Upload() {
     return (
         <div data-testid="upload">
             <div>
-                <img className="upload-image" src={image} />
+                <img data-testid={'image'} className="upload-image" src={image} />
             </div>
             <div className="inputTag">
                 <label htmlFor="inputTag">
@@ -43,14 +43,6 @@ function Upload() {
                     />
                 </label>
             </div>
-            
-            {/* {
-                loading?(
-                    <h3>loading...</h3>
-                ):(
-                    <img src={image} style={{width:'300px'}}/>
-                )
-            } */}
         </div>
     )
 }

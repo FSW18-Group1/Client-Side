@@ -1,10 +1,9 @@
-import { Fragment, useState, useEffect } from "react";
+import { Fragment, useEffect } from "react";
 import { Link, useNavigate, useParams} from 'react-router-dom';
-import {Form, Button} from 'react-bootstrap';
+import {Form} from 'react-bootstrap';
 import { useDispatch, useSelector } from "react-redux";
 import { authenticatedAction } from "../redux/actions/authenticated";
 import { getProfilePlayer } from '../redux/actions/profileplayer';
-import axios from 'axios'
 import './pages.css';
 
 export default function ProfilePlayer() {
@@ -12,7 +11,7 @@ export default function ProfilePlayer() {
     const navigate = useNavigate();
     const params = useParams();
     const id = params.id
-    const {token, data} = useSelector((state) => state.authenticatedReducer)
+    const {token} = useSelector((state) => state.authenticatedReducer)
     const { getProfilePlayerEmail, getProfilePlayerUsername } = useSelector((state) => state.ProfilePlayerReducer)
 
     useEffect(()=> {

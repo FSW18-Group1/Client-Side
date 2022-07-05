@@ -5,7 +5,7 @@ import './component.css';
 export default function Content() {
     const d = new Date();
     let date = d.toLocaleDateString(); 
-    const [collection, setCollection ] = useState([
+    const [collection ] = useState([
         {
             title: "minecraft",
             src: "https://www.mordeo.org/files/uploads/2020/06/Minecraft-Dungeons-Game-Poster-4K-Ultra-HD-Mobile-Wallpaper-950x1689.jpg",
