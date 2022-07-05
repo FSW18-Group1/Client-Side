@@ -3,6 +3,7 @@ import {Dropdown} from 'react-bootstrap'
 import { Link, useNavigate} from 'react-router-dom';
 import Search from '../component/search'
 import '../component/component.css';
+import anonim from '../assets/anonim.jpg'
 
 export default function DropMenu(props) {
     const {user} = props
@@ -11,6 +12,8 @@ export default function DropMenu(props) {
         localStorage.clear()
         Navigate('/login')
     }
+    console.log('drop Menu',user)
+    const src = localStorage.getItem('src')
 
     return(
         <div className='d-flex justify-content-between pt-4 mx-3 sticky'>
@@ -24,7 +27,8 @@ export default function DropMenu(props) {
                 <div className='d-flex justify-content-between nav-side' style={{paddingRight:"2em"}}>
                     <>
                     <Dropdown>
-                        <Dropdown.Toggle className='profile' id="dropdown-basic">
+                        <Dropdown.Toggle className='profile-button' id="dropdown-basic">
+                            <img className="profile" src={src} />
                         </Dropdown.Toggle>
                         <Dropdown.Menu>
                             <div className='text-center mx-3'>

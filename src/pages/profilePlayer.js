@@ -19,12 +19,20 @@ export default function ProfilePlayer() {
         document.title='profile'
         dispatch(authenticatedAction())
         dispatch(getProfilePlayer(id))
+        if(!token){
+            navigate('/login')
+        }
       }, [])
     return(
         <Fragment>        
             <div className="section">
                 <Form className="container profile-form">
-                    <div className='profile-picture'></div>
+                    <div className='profile-picture'>
+                        <img 
+                            src="https://res.cloudinary.com/alternate-cloud/image/upload/v1656991815/letitimages/stlerdaf9ijhxzqnt7zk.jpg"
+                            style={{borderRadius:"50%"}}
+                        />
+                    </div>
                     <h1 className="py-4">Player Profile</h1>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email</Form.Label>

@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import anonim from '../assets/anonim.jpg'
 import './component.css';
 
 function Upload() {
-
+    const src = localStorage.getItem('src')
     const [loading, setLoading] = useState(false)
-    const [image, setImage] = useState(anonim)
+    const [image, setImage] = useState(src)
 
     const uploadImage = async (e) => {
         const files = e.target.files;
@@ -24,6 +23,8 @@ function Upload() {
         console.log(file)
         setImage(file.secure_url)
         setLoading(false)
+
+        localStorage.setItem('src', file.secure_url)
     }
 
     return (
@@ -31,12 +32,18 @@ function Upload() {
             <div>
                 <img className="upload-image" src={image} />
             </div>
-            <input
-                type="file"
-                name="file"
-                placeholder="upload file..."
-                onChange={uploadImage}
-            />
+            <div className="inputTag">
+                <label htmlFor="inputTag">
+                    upload img
+                    <input
+                        id="inputTag"
+                        type="file"
+                        name="file"
+                        onChange={uploadImage}
+                    />
+                </label>
+            </div>
+            
             {/* {
                 loading?(
                     <h3>loading...</h3>

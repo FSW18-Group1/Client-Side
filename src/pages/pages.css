@@ -83,14 +83,14 @@
 .profile-picture{
   position: relative;
   top: 135px;
-  left: -130px;
+  left: -150px;
   width: 100px;
   height: 100px;
-  border: none;
+  /* border: none;
   border-radius: 50%;
   background-image: url("../assets/anonim.jpg");
   background-size: contain;
-  object-fit: cover;
+  object-fit: cover; */
 }
 
 /* gampepage */

@@ -1,10 +1,11 @@
 import { Fragment, useState, useEffect } from "react";
-import { Form, Button } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
+import {Form, Button} from 'react-bootstrap'
+import { Link, useNavigate} from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import { authenticatedAction } from "../redux/actions/authenticated";
-import "./pages.css";
-import axios from "axios";
+import Upload from "../component/uploadImage";
+import './pages.css';
+import axios from 'axios'
 
 export default function Profile() {
   const dispatch = useDispatch();
@@ -41,7 +42,9 @@ export default function Profile() {
     <Fragment>
       <div className="section">
         <Form className="container profile-form" onSubmit={handleSubmit}>
-          <div className="profile-picture"></div>
+          <div className='profile-picture'>
+            <Upload />
+          </div>
           <h1 className="py-4">Edit Profile</h1>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Username</Form.Label>

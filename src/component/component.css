@@ -34,6 +34,34 @@ form button{
   border-bottom: .5px solid #f3c669 !important;
 }
 
+#inputTag[type=file]{
+  display: none;
+}
+
+.inputTag{
+  position: relative;
+  color: #dcdcdc;
+  background-color: #202020;
+  outline: none;
+  border: none;
+  margin: 10px auto;
+  border-radius: 5%;
+  width: fit-content;
+  padding: 0 5px;
+}
+
+.inputTag:hover{
+  background-color:rgba(243, 198, 105, .3);
+}
+.inputTag:active{
+  position: relative;
+  top: 2px;
+}
+
+label{
+  cursor:pointer;
+}
+
 .profile{
   display: inline-block;
   width: 50px;
@@ -43,6 +71,24 @@ form button{
   background-image: url("../assets/anonim.jpg");
   background-size: contain;
   object-fit: cover;
+}
+
+.profile-button{
+  outline: none;
+  background-color: transparent;
+  border: none !important;
+}
+
+.profile-button:hover{
+  outline: none;
+  background-color: transparent;
+  border: none !important;
+}
+
+.profile-button:active{
+  outline: none !important;
+  background-color: transparent !important;
+  border: none !important ;
 }
 
 .upload-image{
