@@ -26,7 +26,7 @@ export default function Home() {
             {token && <DropMenu user = {data} />}
             {!token && <Navbar />}
             <div className="banner">
-                <h1 style={{fontSize:'64px', letterSpacing: "3px"}}>Play Free HD Games <br/> And Many Videos</h1>
+                <h1 style={{fontSize:'64px', letterSpacing: "3px"}}>COBEK! Free HD Games <br/> And Many Videos</h1>
                 <p>Enjoy your unlimited games and entertain post videos collection. We re the definitive source for the best curated games. playable on laptop, pc, wooden pc, anymore</p>
             </div>
         </div>
