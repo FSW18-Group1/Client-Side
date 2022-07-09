@@ -17,7 +17,7 @@ test('form submit button is enable', async () => {
         </Provider>
       )
     // screen.debug(); //tree debug
-    // screen.getByRole('') //role debug
+    screen.getByRole('') //role debug
     expect(screen.getByTestId('game')).toBeInTheDocument();
     expect(screen.getByRole('spinbutton')).toBeDisabled();
 });

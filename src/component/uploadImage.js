@@ -43,6 +43,9 @@ function Upload() {
                     />
                 </label>
             </div>
+            {
+                loading && <p>loading...</p>
+            }
         </div>
     )
 }

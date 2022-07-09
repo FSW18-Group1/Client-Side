@@ -31,7 +31,11 @@ function GameDetail() {
             })
             const id = data.id
             const points = array.find((o)=> o.playerId === id).points
-            localStorage.setItem('score', points)
+            if(points){
+              localStorage.setItem('score', points)
+            }else{
+              localStorage.setItem('score', 0)
+            }
             arrayMap.sort((a, b)=>{
               return  b.score - a.score 
             })

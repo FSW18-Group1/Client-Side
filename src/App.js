@@ -11,7 +11,7 @@ import ProfilePlayer from './pages/profilePlayer';
 
 function App() {
   return (
-    <div className="App">
+    <div data-testid={'app'} className="App">
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/login' element={<Login />} />

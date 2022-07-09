@@ -158,5 +158,4 @@ test('profile user page', () => {
     );
     const gamepage = screen.getByTestId('gamepage')
     expect(gamepage).toBeInTheDocument()
-
 })

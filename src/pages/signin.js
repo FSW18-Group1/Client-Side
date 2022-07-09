@@ -25,7 +25,8 @@ export default function Login() {
             .then(res => {
                 localStorage.setItem('token', res.data.token)
                 localStorage.setItem('data', JSON.stringify(res.data.data))
-                localStorage.setItem('src', 'https://res.cloudinary.com/alternate-cloud/image/upload/v1656991815/letitimages/stlerdaf9ijhxzqnt7zk.jpg')                
+                localStorage.setItem('src', 'https://res.cloudinary.com/alternate-cloud/image/upload/v1656991815/letitimages/stlerdaf9ijhxzqnt7zk.jpg')      
+                localStorage.setItem('score', 0)          
                 navigate('/')
             })
             .catch(err => {
