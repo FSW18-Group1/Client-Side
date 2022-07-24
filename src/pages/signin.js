@@ -11,6 +11,7 @@ export default function Login() {
     const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [error,setError] = useState('')
     const navigate = useNavigate()
 
     const handleSubmit = (e) => {
@@ -30,7 +31,8 @@ export default function Login() {
                 navigate('/')
             })
             .catch(err => {
-                console.log(message.err)
+                setError(err.response.data.message)
+                console.log(err.message, err.response)
             })
     }
 
@@ -55,6 +57,7 @@ export default function Login() {
                         </div>
                         <div className="mb-4">
                             <input type="password" className="form-input" id="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+                            <p className="warning">{error}</p>
                         </div>
                         <Submit command="SIGN IN" />
                     </form>
