@@ -80,6 +80,14 @@
   width: 30% !important;
 }
 
+.warning{
+  width: fit-content;
+  margin: 0 auto;
+  color: #f3c669;
+  font-size: 12px;
+  font-style: italic;
+}
+
 .profile-picture{
   position: relative;
   top: 135px;
