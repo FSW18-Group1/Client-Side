@@ -14,7 +14,7 @@ export default function Login() {
     const [username,setUsername] = useState('');
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('');
-    
+    const [error,setError] = useState('')
 
     const createUser= (e) => {
         console.log('1. masuk handlesubmit')
@@ -30,9 +30,16 @@ export default function Login() {
         .then(res => {
             navigate('/login')
         })
-        .catch(
-            err => console.log(err)
-        )
+        .catch( err => {
+            if(err.response.status === 500){
+                setError('username or email has taken')
+            }else if(response.status === 400) {
+                setError(err.response.data.message)
+            }else{
+                setError(err.message)
+                console.log(err)
+            }
+        })
 
     }
 
@@ -49,7 +56,7 @@ export default function Login() {
                 <div className="form-border mx-auto ">
                     <h1 className="text-center mt-5 fw-bold">Letitgo-games</h1>
                     <h3 className="text-center mb-5 fw-light">Create Account</h3>
-                    <form method="post" data-testid={'form'} onSubmit={createUser} > 
+                    <form method="post" onSubmit={createUser} > 
                         <div className="mb-4">
                             <input type="text" className="form-input" id="InputUsername" placeholder="Username" name='username' value={username} onChange={(e) => {setUsername(e.target.value)}} required />
                         </div>
@@ -61,8 +68,8 @@ export default function Login() {
                         </div>
                         <div className="mb-4">
                             <input type="password" className="form-input" id="InputPassworConfirmation" placeholder="Password Confirmation" required />
+                            <p className="warning">{error}</p>
                         </div>
-                        {/* <button type="submit">create account</button> */}
                         <Submit command="CREATE ACCOUNT" />
                     </form>
                 </div>
